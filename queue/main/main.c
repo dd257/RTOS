@@ -1,3 +1,7 @@
+/*	Question 18
+	Data sent from task "send" to "receive" only when set_value is divisible by 5
+*/
+
 #include<stdio.h>
 #include<freertos/FreeRTOS.h>
 #include<freertos/task.h>
@@ -14,9 +18,11 @@ void send(void *pv)
 	{
 		set_value++;
 		printf("Sending data: %d\n",set_value);
-		xQueueSend(queue,&set_value,portMAX_DELAY);
+
+		if(set_value%5==0)
+			xQueueSend(queue,&set_value,portMAX_DELAY);
+
 		vTaskDelay(1000/portTICK_PERIOD_MS);
-		
 	}
 }
 
@@ -28,7 +34,6 @@ void receive(void *pv)
 		xQueueReceive(queue,&sensor_data,portMAX_DELAY);
 		printf("Received Data: %d\n",sensor_data);
 		//vTaskDelay(1000/portTICK_PERIOD_MS);
-		
 	}
 }
 
