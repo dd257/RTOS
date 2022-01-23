@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/rahul/cdac/build/CMakeFiles/bootloader
+/home/rahul/cdac/build/CMakeFiles/bootloader.rule
+/home/rahul/cdac/build/CMakeFiles/bootloader-complete.rule
+/home/rahul/cdac/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/rahul/cdac/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/rahul/cdac/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/rahul/cdac/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/rahul/cdac/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/rahul/cdac/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/rahul/cdac/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
