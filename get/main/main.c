@@ -1,3 +1,9 @@
+/* Question 1 & 2
+Displaying Task priority and range of priority
+Periodic Task of 500ms - setting and restting GPIO pin 2
+Periodic Task of 1000ms - displaying information about Task
+*/
+
 #include<stdio.h>
 #include<freertos/FreeRTOS.h>
 #include<freertos/task.h>
@@ -7,11 +13,8 @@ BaseType_t result;
 
 void tasklog(void *pv)
 {
-	while(1)
-	{
-		printf("Sensor Task\n");
-		vTaskDelay(1000/portTICK_PERIOD_MS);
-	}
+	printf("Sensor Task\n");
+	vTaskDelete(NULL);
 }
 
 void blink(void *pv)
@@ -22,10 +25,10 @@ void blink(void *pv)
 	while(1)
 	{
 		gpio_set_level(2,1);
-		vTaskDelay(1500/portTICK_PERIOD_MS);
+		vTaskDelay(500/portTICK_PERIOD_MS); 
 		gpio_set_level(2,0);
-		vTaskDelay(1500/portTICK_PERIOD_MS);
-		printf("Stack High Water Mark: %d\nTask Affinity: %d\n",uxTaskGetStackHighWaterMark(NULL),xTaskGetAffinity(NULL));
+		vTaskDelay(500/portTICK_PERIOD_MS);
+		printf("\nStack High Water Mark: %d\nTask Affinity: %d\nTask Priority: %d\nMax Priority: %d\n",uxTaskGetStackHighWaterMark(NULL),xTaskGetAffinity(NULL),uxTaskPriorityGet(NULL),configMAX_PRIORITIES);
 	}
 }
 
