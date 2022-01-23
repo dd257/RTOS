@@ -1,0 +1,22 @@
+6.  There are no Software limitations in the No. of tasks that can be created. Although there will be memory constrains on the RAM.
+
+7.  vTaskDelayUntil, xTaskDelayUntil, vTaskSuspend & vTaskResume can be used to schedule tasks.
+
+8.  Pointer to the Task, 
+    Size of Stack for the Task, 
+    The Parameters that can be passed on to the Task, 
+    Priority of the Task, & 
+    Handle to the Task.
+
+9.  vTaskDelay
+    vTaskDelayUntil
+    xTaskDelayUntil
+    uxTaskPriorityGet
+    vTaskPrioritySet
+    vTaskSuspend
+    vTaskResume
+    xTaskResumeFromISR
+    xTaskAbortDelay 
+
+14. 100Hz
+
