@@ -1,7 +1,0 @@
-[2022-01-23 15:29:11.205] [main] [info] update#setState idle
-[2022-01-23 15:29:11.456] [main] [info] ExtensionHostStarterWorker created
-[2022-01-23 15:29:13.565] [main] [info] Starting extension host with pid 29297 (fork() took 26 ms).
-[2022-01-23 15:29:28.113] [main] [info] Extension host with pid 29297 exited with code: 0, signal: null.
-[2022-01-23 15:29:29.598] [main] [info] Starting extension host with pid 29353 (fork() took 17 ms).
-[2022-01-23 15:29:41.209] [main] [info] update#setState checking for updates
-[2022-01-23 15:29:41.210] [main] [info] update#setState idle
