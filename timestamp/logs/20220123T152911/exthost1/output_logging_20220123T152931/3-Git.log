@@ -1,0 +1,84 @@
+Validating found git in: git
+Using git 2.17.1 from git
+> git rev-parse --git-dir
+Open repository: /home/rahul/RTOS
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/main refs/remotes/main
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :timestamp/main/main.c
+> git ls-files --stage -- /home/rahul/RTOS/timestamp/main/main.c
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/main refs/remotes/main
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :timestamp/main/main.c
+> git ls-files --stage -- /home/rahul/RTOS/timestamp/main/main.c
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :gpio/main/main.c
+> git ls-files --stage -- /home/rahul/RTOS/gpio/main/main.c
+> git cat-file -s fb48b97e574dc3b6c3cf536bdb5d1b59575273c6
+> git show --textconv :timestamp/main/main.c
+> git ls-files --stage -- /home/rahul/RTOS/timestamp/main/main.c
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :Question4_5/main/main.c
+> git ls-files --stage -- /home/rahul/RTOS/Question4_5/main/main.c
+> git show --textconv :Other_Questions
+> git ls-files --stage -- /home/rahul/RTOS/Other_Questions
+> git check-ignore -v -z --stdin
+> git show --textconv :Other_Questions.txt
+> git ls-files --stage -- /home/rahul/RTOS/Other_Questions.txt
+> git check-ignore -v -z --stdin
+> git show --textconv :en_dis_interrupt
+> git ls-files --stage -- /home/rahul/RTOS/en_dis_interrupt
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :Other_Questions.txt
+> git ls-files --stage -- /home/rahul/RTOS/Other_Questions.txt
+> git show --textconv :en_dis_interrupt
+> git ls-files --stage -- /home/rahul/RTOS/en_dis_interrupt
+> git show --textconv :Other_Questions.txt
+> git ls-files --stage -- /home/rahul/RTOS/Other_Questions.txt
+> git status -z -u
+> git ls-files --stage -- /home/rahul/RTOS/Other_Questions.txt
+> git show --textconv :Other_Questions.txt
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/main refs/remotes/main
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Question4_5/main/main.c
+> git ls-files --stage -- /home/rahul/RTOS/Question4_5/main/main.c
+> git cat-file -s b8e5b379ff0b72225c5cd4686121030983eb6f3e
+> git show --textconv :Question4_5/main/main.c
+> git ls-files --stage -- /home/rahul/RTOS/Question4_5/main/main.c
+> git cat-file -s b8e5b379ff0b72225c5cd4686121030983eb6f3e
+> git status -z -u
+> git ls-files --stage -- /home/rahul/RTOS/Question4_5/main/main.c
+> git cat-file -s b8e5b379ff0b72225c5cd4686121030983eb6f3e
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/main refs/remotes/main
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git show --textconv :Question4_5/main/main.c
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/main refs/remotes/main
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template

@@ -1,0 +1,18 @@
+[2022-01-23 15:29:14.895] [renderer1] [error] [Extension Host] (node:29297) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `code --trace-deprecation ...` to show where the warning was created)
+[2022-01-23 15:29:31.018] [renderer1] [error] [Extension Host] (node:29353) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `code --trace-deprecation ...` to show where the warning was created)
+[2022-01-23 15:29:31.374] [renderer1] [warning] [File Watcher (parcel)] correcting a path to watch that seems to be a symbolic link (original: /home/rahul/RTOS, real: /home/rahul/rtos)
+[2022-01-23 15:30:42.526] [renderer1] [error] Could not find category with ID: ms-vscode.cpptools#cppWelcome: Error: Could not find category with ID: ms-vscode.cpptools#cppWelcome
+    at vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2766:92059
+    at a.fire (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:69:1712)
+    at O.progressStep (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1703:25837)
+    at O.registerDoneListeners (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1703:28377)
+    at vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1703:26695
+    at Array.forEach (<anonymous>)
+    at O._registerWalkthrough (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1703:26477)
+    at vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1703:23862
+    at async Promise.all (index 0)
+    at async O.registerExtensionWalkthroughContributions (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1703:21409)
+    at async Promise.all (index 1)
+    at async n._handler (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1703:17769)
