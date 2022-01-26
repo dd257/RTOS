@@ -15,23 +15,26 @@ QueueHandle_t queue;
 
 void task(void *pv)
 {
-	bool gpio_state;
+	uint32_t data=0;
 
  	while(1)
 	{  
+		data=0;
 		gpio_set_level(13,0);
-		xQueueReceiveFromISR(queue,&gpio_state,pdFALSE);
-		printf("Main Task\nPin State: %d\n",gpio_state);
+		printf("Main Task\nPin State: %d\n",gpio_get_level(14));
 		vTaskDelay(1000/portTICK_PERIOD_MS);
+		xQueueReceiveFromISR(queue,&data,pdFALSE);
+		printf("Data: %d\n",data);
+		vTaskDelay(10/portTICK_PERIOD_MS);
  	}
 }
 
 void int_task(void *pv)
 {
 	vTaskSuspend(NULL);
-	bool gpio_state_intr;
-	gpio_state_intr=gpio_get_level(14);
-	xQueueSendFromISR(queue,&gpio_state_intr,pdFALSE);
+	uint32_t intr_data=0;
+	intr_data++;
+	xQueueSendFromISR(queue,&intr_data,pdFALSE);
 	gpio_set_level(13,1);	
 	vTaskDelay(1000/portTICK_PERIOD_MS);
 }
