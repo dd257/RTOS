@@ -1,59 +1,100 @@
-//	Question 20
+//Question_20
 
-#include<stdio.h>
-#include<freertos/FreeRTOS.h>
-#include<freertos/task.h>
+#include <stdio.h>
+#include <driver/gpio.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
+#include <esp_intr_alloc.h>
 #include<freertos/semphr.h>
 
-BaseType_t result;
+TaskHandle_t main_task,isr_task;
+esp_err_t intr_result;
+intr_handle_t isr;
+intr_handler_t isr_handler;
 SemaphoreHandle_t sem;
 
-void send(void *pv)
+void task(void *pv)
 {
-	int send_data=0;
+	bool gpio_state;
 
-	while(1)
-	{
-		send_data++;
-
-		if(send_data%10==0)
-		{
-			xSemaphoreGive(sem);
-			printf("Sem Release\n");
-		}
-
-		printf("Sensor Task: %d\n",send_data);
+ 	while(1)
+	{  
+		gpio_set_level(13,0);
+		gpio_state=gpio_get_level(14);
+		printf("Main Task\nPin State: %d\n",gpio_state);
 		vTaskDelay(1000/portTICK_PERIOD_MS);
-	}
+ 	}
 }
 
-void receive(void *pv)
+void int_task(void *pv)
 {
-	while(1)
-	{
-		xSemaphoreTake(sem,portMAX_DELAY);
-		printf("Data received\n");
-		vTaskDelay(1500/portTICK_PERIOD_MS);
-	}
+	xSemaphoreTake(sem,portMAX_DELAY);
+	gpio_set_level(13,1);	
+	vTaskDelay(1000/portTICK_PERIOD_MS);
 }
+
+void IRAM_ATTR intr(void *pv)
+{
+ 	xSemaphoreGiveFromISR(sem,pdFALSE);
+}
+
 
 int app_main()
 {
-	sem=xSemaphoreCreateBinary();
+	BaseType_t result;
 
-	result=xTaskCreate(send,"Send",2048,NULL,4,NULL);
-	if(result!=pdPASS)
+	sem=xSemaphoreCreateBinary();
+	if(sem==NULL)
 	{
-		printf("Task Send Creation Failed\n");
+		perror("Error creating Binary Semaphore");
 		return 0;
 	}
 
-	result=xTaskCreate(receive,"Receive",2048,NULL,4,NULL);
-	if(result!=pdPASS)
+    gpio_reset_pin(14);
+	gpio_reset_pin(13);
+  	gpio_set_direction(14, GPIO_MODE_INPUT);
+	gpio_set_direction(13, GPIO_MODE_OUTPUT);
+	gpio_intr_enable(14);
+	
+  	gpio_set_intr_type(14, GPIO_INTR_LOW_LEVEL);
+	if(intr_result!=ESP_OK)
 	{
-		printf("Task Receive Creation Failed\n");
+		perror("Interrupt type");
+		return 0;
+	}  
+
+	gpio_install_isr_service(ESP_INTR_FLAG_EDGE); //ESP_INTR_FLAG_EDGE
+	if(intr_result!=ESP_OK)
+	{
+		perror("Interrupt service");
+		return 0;
+	}
+
+  	gpio_isr_handler_add(14, int_task, NULL);
+	if(intr_result!=ESP_OK)
+	{
+		perror("Interrupt not enabled");
+		return 0;
+	}
+
+	result=xTaskCreate(task, "task", 4096, NULL , 5, &main_task);
+	if(result!=pdTRUE)
+	{
+		perror("Main Task not created");
 		return 0;
 	}
 	
+	result=xTaskCreate(int_task, "interrupt_task", 4096, NULL , 6, &isr_task);
+	if(result!=pdTRUE)
+	{
+		perror("Interrupt Task not created");
+		return 0;
+	}
+
+	vTaskStartScheduler();
+//	vTaskEndScheduler();
+
+	//xSemaphoreTake(sem,portMAX_DELAY);
 	return 0;
 }
+
